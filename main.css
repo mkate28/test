@@ -350,12 +350,6 @@ body {
 
 /* -----------------responsive----------------- */
 
-@media (max-width: 992px) {
-   /* .projects__list {
-      grid-template-columns: repeat(2, 1fr);
-   } */
-}
-
 @media (max-width: 768px) {
    .menu__burger {
       display: block;
@@ -367,19 +361,26 @@ body {
       position: absolute;
       inset: 0;
 		z-index: 99;
+      display: none;
       width: 100%;
 		height: 100vh;
       padding: 160px 0 80px;
 		flex-direction: column;
       align-items: center;
 		background-color: var(--light-color);
-      -webkit-clip-path: circle(0 at right top);
       overflow: auto;
-      transition: .3s;
+      animation: menuAnimation .3s;
+	}
+   @keyframes menuAnimation {
+		from {opacity: 0;}
+		to {opacity: 1;}
 	}
 	.menu__list.menu__list--open {
+      display: flex;
       color: var(--dark-color);
-      -webkit-clip-path: circle(150% at right top);
+	}
+	.menu-list.open {
+		display: flex;
 	}
    .section {
       padding: 60px 0;
